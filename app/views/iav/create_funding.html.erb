@@ -1,0 +1,19 @@
+<div class="row">
+<br />
+<div class="well">
+    Instead of collecting routing and account numbers for verification, Dwolla IAV can create a funding source with the user's online banking information. Nothing is stored and everything is transported through HTTPS &mdash; convenience without a security compromise.
+</div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 col-sm-6">
+    <h4 class="page-header">IAV Request</h4>
+    <p><%== Parser.md.render(@iav_request).html_safe %></p>
+    <br />
+  </div>
+  <div class="col-sm-6 col-sm-6">
+    <h4 class="page-header">IAV Response</h4>
+    <p><%== Parser.md.render(@iav_response).html_safe %></p>
+    <br />
+  </div>
+</div>

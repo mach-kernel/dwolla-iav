@@ -43,3 +43,10 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Dwolla SDK
+gem 'dwolla_swagger', '~> 1.0', '>= 1.0.3'
+
+# Pretty printing, AWESOME PRINTING!
+gem 'redcarpet', '~> 3.3', '>= 3.3.3'
+gem 'rouge', '~> 1.10', '>= 1.10.1'

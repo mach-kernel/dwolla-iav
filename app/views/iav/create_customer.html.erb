@@ -1,0 +1,37 @@
+<%= javascript_include_tag "create" %>
+
+
+<div class="row">
+<br />
+<div class="well">
+    In order for a customer to be able to transfer money to you, they must have a customer record made on their behalf. This can be done during the online registration process for your product; no sensitive information is required other than what you are prompted for in the fields below.
+</div>
+</div>
+
+<div class="row">
+  <div class="col-sm-4 col-sm-4">
+      <h4 class="page-header">Request JSON</h4>
+      <p><%== Parser.md.render(@customer_model).html_safe %></p>
+      <br />
+  </div>
+    <%= form_for(:customer, :url => {:controller => 'iav', :action => 'post_customer'}) do |f| %>
+
+    <div class="col-sm-8 col-sm-8">
+        <h4 class="page-header">Collect Data</h4>
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <p><%= f.text_field :firstName, :tabindex => 1, class: 'form-control', :placeholder => 'First Name' %></p>
+
+                <p><%= f.text_field :email, :tabindex => 3, class: 'form-control', :placeholder => 'E-Mail' %></p>
+            </div>
+            <div class="col-md-6 col-xs-6">
+                <p><%= f.text_field :lastName, :tabindex => 2, class: 'form-control', :placeholder => 'Last Name' %></p>
+                <p><%= f.text_field :ipAddress, :tabindex => 4, class: 'form-control', :placeholder => 'IP Address (optional)' %></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+      <%= f.submit "Continue", class: "btn btn-primary btn-block" %>
+    </div>
+    <% end %>
+</div>
