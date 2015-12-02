@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/twitter/secureheaders
+  revision: 170271f4a4da7d2e8139e033f7bbdcf682117c16
+  branch: master
+  specs:
+    secure_headers (2.4.3)
+      user_agent_parser
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -143,6 +151,7 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    user_agent_parser (2.3.0)
     web-console (2.2.1)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -163,6 +172,7 @@ DEPENDENCIES
   rouge (~> 1.10, >= 1.10.1)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  secure_headers!
   sqlite3
   turbolinks
   tzinfo-data

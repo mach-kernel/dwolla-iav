@@ -1,3 +1,6 @@
+<%= javascript_include_tag "create_funding" %>
+<%= javascript_include_tag "https://cdn.dwolla.com/dwolla.js" %>
+
 <div class="row">
 <br />
 <div class="well">
@@ -6,13 +9,21 @@
 </div>
 
 <div class="row">
-  <div class="col-sm-6 col-sm-6">
-    <h4 class="page-header">IAV Request</h4>
-    <p><%== Parser.md.render(@iav_request).html_safe %></p>
-    <br />
+<h4 class="page-header">IAV User Experience</h4>
+  <div class="col-sm-12 col-sm-12">
+    <div id="dwolla-iav">
+      <a type="button" class="btn btn-lg btn-primary" href="#" id="dwolla-iav-button">Begin IAV</a>
+    </div>
+    <span id="dwolla-iav-token">
+      <%= @iav_token %>
+    </span>
   </div>
-  <div class="col-sm-6 col-sm-6">
-    <h4 class="page-header">IAV Response</h4>
+</div>
+
+<div class="row">
+<h4 class="page-header">Retrieving your IAV token</h4>
+  <div class="col-sm-12 col-sm-12">
+    <p><%== Parser.md.render(@iav_request).html_safe %></p>
     <p><%== Parser.md.render(@iav_response).html_safe %></p>
     <br />
   </div>

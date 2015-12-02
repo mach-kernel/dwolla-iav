@@ -50,3 +50,6 @@ gem 'dwolla_swagger', '~> 1.0', '>= 1.0.3'
 # Pretty printing, AWESOME PRINTING!
 gem 'redcarpet', '~> 3.3', '>= 3.3.3'
 gem 'rouge', '~> 1.10', '>= 1.10.1'
+
+# Override Modernizr-set content-policy in somewhat semantic manner
+gem 'secure_headers', :git => 'https://github.com/twitter/secureheaders', :branch => 'master', :require => 'secure_headers'

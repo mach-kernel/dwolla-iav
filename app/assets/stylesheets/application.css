@@ -82,3 +82,7 @@ body {
     border-bottom: 0;
   }
 }
+
+#dwolla-iav-token {
+  display:none;
+}
