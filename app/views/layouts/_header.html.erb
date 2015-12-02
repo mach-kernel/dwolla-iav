@@ -1,12 +1,12 @@
 <div class="header">
   <ul class="nav nav-pills pull-right">
-    <li class="active">
-      <a href="#">Welcome</a>
+    <li <%= "class=active" if action_name == "landing" %>>
+      <a href="/">Welcome</a>
     </li>
-    <li>
+    <li <%= "class=active" if action_name == "create_customer" %>>
       <a href="#">Create a Customer</a>
     </li>
-    <li>
+    <li <%= "class=active" if action_name == "create_funding" %>>
       <a href="#">Add a Funding Source</a>
     </li>
   </ul>

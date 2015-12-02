@@ -86,3 +86,8 @@ body {
 #dwolla-iav-token {
   display:none;
 }
+
+iframe {
+  width: 300px;
+  height: 300px
+}

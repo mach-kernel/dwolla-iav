@@ -13,6 +13,7 @@ class IavController < ApplicationController
 
 
   def landing
+    p action_name
     reset_session
   end
 
@@ -49,7 +50,7 @@ class IavController < ApplicationController
     end
 
 
-    @iav_request = "```http\nPOST #{session[:customer].split('/')[-1]}/iav-token"
+    @iav_request = "```http\nPOST /customers/#{session[:customer].split('/')[-1]}/iav-token"
 
     @iav_response = DwollaSwagger::CustomersApi.get_customer_iav_token(session[:customer]).to_hash
     @iav_token = @iav_response[:token]
