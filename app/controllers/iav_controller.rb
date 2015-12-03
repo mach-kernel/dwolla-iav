@@ -1,5 +1,4 @@
 require 'dwolla_swagger'
-require 'secure_headers'
 
 class IavController < ApplicationController
 
@@ -58,6 +57,15 @@ class IavController < ApplicationController
     @iav_response = "```js\n#{JSON.pretty_generate(@iav_response)}"
   end
 
-  def post_funding
+  def finish_funding
+    if params[:id].blank?
+      flash[:error] = 'Something went wrong. Try again?'
+      redirect_to '/'
+    end
+
+    @funding_source = DwollaSwagger::FundingsourcesApi.id params[:id]
+    @funding_source = "```js\n#{JSON.pretty_generate(@funding_source.to_hash)}"
+
+    render 'create_funding'
   end
 end

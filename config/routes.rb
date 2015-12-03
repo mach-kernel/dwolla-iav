@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'create_funding', to: 'iav#create_funding'
   post 'create_funding', to: 'iav#post_funding'
 
+  get 'finish_funding/:id', to: 'iav#finish_funding'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
