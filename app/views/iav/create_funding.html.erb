@@ -8,22 +8,14 @@
 </div>
 </div>
 
-<% if @funding_source %>
-
-<div class="row">
-<h4 class="page-header">Your New Funding Source</h4>
-  <div class="col-sm-12 col-sm-12">
-    <p><%== Parser.md.render(@funding_source).html_safe %></p>
-    <br />
-  </div>
-</div>
-
-<% else %>
 
 <div class="row">
 <h4 class="page-header">IAV User Experience</h4>
   <div class="col-sm-12 col-sm-12" id="dwolla-iav">
     <a type="button" class="btn btn-lg btn-primary btn-block" href="#" id="dwolla-iav-button">Begin IAV</a>
+    <div class="alert alert-info fade in" id="iav-alert">
+    You can use fake info here, just make sure your passwords match!
+    </div>
     <span id="dwolla-iav-token">
       <%= @iav_token %>
     </span>
@@ -38,5 +30,3 @@
     <br />
   </div>
 </div>
-
-<% end %>

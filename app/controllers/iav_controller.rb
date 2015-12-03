@@ -6,17 +6,16 @@ class IavController < ApplicationController
   rescue_from DwollaSwagger::ServerError, :with => :rescue_dwolla_errors
 
   def rescue_dwolla_errors(exception)
-    reset_session
     flash[:error] = "Uh oh! A Dwolla API error was encountered: \n#{exception.message}"
+    redirect_to '/'
   end
 
-
   def landing
-    p action_name
-    reset_session
   end
 
   def create_customer
+    reset_session
+    
     @customer_model = {
       :firstName => '',
       :lastName => '',
@@ -43,18 +42,17 @@ class IavController < ApplicationController
   end
 
   def create_funding
-    if session[:customer].blank?
+    if session[:customer].nil?
       flash[:error] = 'Something went wrong. Try again?'
       redirect_to '/'
+    else
+      @iav_request = "```http\nPOST /customers/#{session[:customer].split('/')[-1]}/iav-token"
+
+      @iav_response = DwollaSwagger::CustomersApi.get_customer_iav_token(session[:customer]).to_hash
+      @iav_token = @iav_response[:token]
+
+      @iav_response = "```js\n#{JSON.pretty_generate(@iav_response)}"
     end
-
-
-    @iav_request = "```http\nPOST /customers/#{session[:customer].split('/')[-1]}/iav-token"
-
-    @iav_response = DwollaSwagger::CustomersApi.get_customer_iav_token(session[:customer]).to_hash
-    @iav_token = @iav_response[:token]
-
-    @iav_response = "```js\n#{JSON.pretty_generate(@iav_response)}"
   end
 
   def finish_funding
@@ -65,7 +63,5 @@ class IavController < ApplicationController
 
     @funding_source = DwollaSwagger::FundingsourcesApi.id params[:id]
     @funding_source = "```js\n#{JSON.pretty_generate(@funding_source.to_hash)}"
-
-    render 'create_funding'
   end
 end
