@@ -1,6 +1,8 @@
 # dwolla-iav
 A quickstart tutorial application written in Rails 4+ illustrating an example `dwolla.js` implementation.
 
+Syntax highlighting done via [redcarpet](https://github.com/vmg/redcarpet) and [rouge](https://github.com/jneen/rouge).
+
 ![Ooh! Pretty!](http://puu.sh/m0dJe/7d8510f62f.png)
 
 ## Requirements
