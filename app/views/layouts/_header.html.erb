@@ -1,6 +1,6 @@
 <div class="header">
   <ul class="nav nav-pills pull-right">
-    <%- if action_name == "finish_funding" %>
+    <%- if action_name == "finish_move_money" %>
     <li>
       <a href="/">Try again?</a>
     </li>
@@ -13,6 +13,9 @@
     </li>
     <li class=<%= "active" if action_name == "create_funding" %>>
       <a>Add a Funding Source</a>
+    </li>
+    <li class=<%= "active" if action_name == "finish_funding" %>>
+      <a>Move Money</a>
     </li>
     <%- end %>
   </ul>
