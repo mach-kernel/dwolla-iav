@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-sm-12 col-sm-12">
+    <h4 class="page-header">You just moved money!</h4>
+    <% if params.has_key?(:flip) %>
+    <div class="well">
+      You just did it again! Compare the source and destination values to what they previously were for confirmation: the new customer just sent the penny back from their funding source! Visit our developer's portal for more documentation and snippets on integrating the Dwolla API.
+    </div>
+    <% else %>
+    <div class="well">
+      That was easy! In addition to having customers send payments to you, customers can also receive payments using their verified funding sources. If you want, you can send that penny back to your customer's funding source. Make note of the source and destination values!
+    </div>
+    <% end %>
+    <p><%== Parser.md.render(@transaction_response).html_safe %></p>
+    <% if params.has_key?(:flip) %>
+    <a class="btn btn-info btn-block" href="https://developers.dwolla.com">Visit the Developers Portal</a>
+    <% else %>
+    <a class="btn btn-primary btn-block" href="/finish_move?flip=1">Return a Penny</a>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12 col-sm-12">
+    <h4 class="page-header">Talk about it!</h4>
+    <div class="well">
+      Tweet with <strong>#dwollaiav</strong> and let us know how you felt about this experience! Your feedback may influence future iterations of this software package.
+    </div>
+  </div>
+  <div class="col-sm-offset-2 col-sm-8 col-sm-8">
+    <div id="twitter-box">
+      <a class="twitter-timeline" href="https://twitter.com/hashtag/dwollaiav" data-widget-id="672471617012965376">#dwollaiav Tweets</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
+    <br />
+  </div>
+</div>

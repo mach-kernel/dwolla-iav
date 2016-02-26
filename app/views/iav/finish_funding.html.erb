@@ -1,22 +1,23 @@
+<%= javascript_include_tag "finish_funding" %>
+<%= javascript_include_tag "smooth-scroll.min" %>
+
 <div class="row">
   <div class="col-sm-12 col-sm-12">
     <h4 class="page-header">Your new funding source</h4>
-    <p><%== Parser.md.render(@funding_source).html_safe %></p>
+    <a class="btn-info btn-sm" id="new_fs_toggle">Show/Hide</a>
+    <div id="new_fs_lexed">
+      <p><%== Parser.md.render(@funding_source).html_safe %></p>
+    </div>
   </div>
 </div>
 <div class="row">
   <div class="col-sm-12 col-sm-12">
-    <h4 class="page-header">Talk about it!</h4>
+    <h4 class="page-header" id="move_money_header">Let's move some money</h4>
     <div class="well">
-      Tweet with <strong>#dwollaiav</strong> and let us know how you felt about this experience! Your feedback may influence future iterations of this software package.
+      Now that your customer has a verified funding source, you're ready to receive money from them. Let's collect a penny on behalf of the account that this application is associated to. In the real world, this would be how a business owner would collect web payments using Dwolla online.
     </div>
-  </div>
-
-  <div class="col-sm-offset-2 col-sm-8 col-sm-8">
-  <div id="twitter-box">
-    <a class="twitter-timeline" href="https://twitter.com/hashtag/dwollaiav" data-widget-id="672471617012965376">#dwollaiav Tweets</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    </div>
+    <p><%== Parser.md.render(@transaction_model).html_safe %></p>
+    <a class="btn btn-primary btn-block" href="/finish_move">Send a Penny</a>
     <br />
   </div>
 </div>
